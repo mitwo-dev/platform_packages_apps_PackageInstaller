@@ -47,7 +47,7 @@
     <string name="unknown_apps_dlg_text" product="tablet" msgid="7504186369474734767">"出于安全考虑，您的平板电脑已设置为禁止安装来源不明的应用。"</string>
     <string name="unknown_apps_dlg_text" product="default" msgid="133213135679009316">"出于安全考虑，您的手机已设置为禁止安装来源不明的应用。"</string>
     <string name="ok" msgid="3468756155452870475">"确定"</string>
-    <string name="settings" msgid="6743583734099755409">"设置"</string>
+    <string name="settings" msgid="6743583734099755409">"允许"</string>
     <string name="allow_source_dlg_title" msgid="7568985073502399415">"新的应用来源"</string>
     <string name="allow_source_dlg_text" msgid="3927580956764099076">"<xliff:g id="APP_NAME">%1$s</xliff:g>要求安装其他应用。\n\n从现在起允许此操作吗？"</string>
     <string name="manage_applications" msgid="4033876279091996596">"管理应用"</string>
