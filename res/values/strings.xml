@@ -154,11 +154,5 @@
 
     <string name="grant_confirm_question">Do you want to grant the following permissions?
         It will get access to:</string>
-    <string name="app_install_location_title">Preferred install location</string>
-    <!-- Apps on SD installation location options in ApplicationSettings -->
-    <string-array name="app_install_location_entries">
-        <item>Let the system decide</item>
-        <item>Internal device storage</item>
-        <item>Removable SD card</item>
-    </string-array>
+
 </resources>

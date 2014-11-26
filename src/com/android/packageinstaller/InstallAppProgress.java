@@ -35,7 +35,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -73,10 +72,6 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
     private Intent mLaunchIntent;
     private static final int DLG_OUT_OF_SPACE = 1;
     private CharSequence mLabel;
-
-    private static final int APP_INSTALL_AUTO = 0;
-    private static final int APP_INSTALL_DEVICE = 1;
-    private static final int APP_INSTALL_SDCARD = 2;
 
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
@@ -183,46 +178,8 @@ public class InstallAppProgress extends Activity implements View.OnClickListener
                     InstallFlowAnalytics.RESULT_FAILED_UNSUPPORTED_SCHEME);
             throw new IllegalArgumentException("unexpected scheme " + scheme);
         }
-        showAppInstallLocationSettingDlg();
-    }
 
-    private void showAppInstallLocationSettingDlg() {
-        final int selectedLocation = Settings.Global.getInt(getContentResolver(),
-                Settings.Global.DEFAULT_INSTALL_LOCATION, APP_INSTALL_AUTO);
-        final String[] items =getResources().getStringArray(R.array.app_install_location_entries);
-        new AlertDialog.Builder(this).setTitle(R.string.app_install_location_title)
-                .setCancelable(false)
-                .setSingleChoiceItems(items, selectedLocation,
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int item) {
-                                if(APP_INSTALL_DEVICE == item) {
-                                    Settings.Global.putInt(getContentResolver(),
-                                            Settings.Global.DEFAULT_INSTALL_LOCATION,
-                                                    APP_INSTALL_DEVICE);
-                                } else if (APP_INSTALL_SDCARD == item) {
-                                    Settings.Global.putInt(getContentResolver(),
-                                            Settings.Global.DEFAULT_INSTALL_LOCATION,
-                                                    APP_INSTALL_SDCARD);
-                                } else if (APP_INSTALL_AUTO== item) {
-                                    Settings.Global.putInt(getContentResolver(),
-                                            Settings.Global.DEFAULT_INSTALL_LOCATION,
-                                                    APP_INSTALL_AUTO);
-                                } else {
-                                // Should not happen, default to prompt.
-                                    Settings.Global.putInt(getContentResolver(),
-                                            Settings.Global.DEFAULT_INSTALL_LOCATION,
-                                                    APP_INSTALL_AUTO);
-                                }
-                                dialog.cancel();
-                                mHandler.post(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        initView();
-                                    }
-                                });
-                            }
-                        }
-                ).show();
+        initView();
     }
 
     @Override

@@ -82,11 +82,4 @@
     <string name="devicePerms" msgid="6733560207731294504">"设备相关权限"</string>
     <string name="no_new_perms" msgid="6657813692169565975">"新版本不需要任何新的权限。"</string>
     <string name="grant_confirm_question" msgid="4690289297029223742">"要向该应用授予以下权限吗？"</string>
-
-    <string name="app_install_location_title" msgid="2068975150026852168">"首选安装位置"</string>
-    <string-array name="app_install_location_entries">
-      <item msgid="4498124044785815005">"由系统确定"</item>
-      <item msgid="8151497958991952759">"设备内存"</item>
-      <item msgid="3738430123799803530">"可卸载的 SD 卡"</item>
-    </string-array>
 </resources>
